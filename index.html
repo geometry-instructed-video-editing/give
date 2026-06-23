@@ -1,0 +1,1946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GIVE Supplementary Video Comparisons</title>
+  <style>
+    :root {
+      --bg: #f7f8fb;
+      --panel: #ffffff;
+      --text: #172033;
+      --muted: #687386;
+      --line: #e5e9f2;
+      --blue: #2563eb;
+      --blue-2: #1d4ed8;
+      --blue-soft: #eaf1ff;
+      --shadow: 0 14px 38px rgba(15, 23, 42, 0.08);
+      --shadow-soft: 0 8px 24px rgba(15, 23, 42, 0.05);
+      --radius: 18px;
+      --max: 1380px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; }
+
+    .container {
+      width: min(var(--max), calc(100vw - 42px));
+      margin: 0 auto;
+    }
+
+    .section { padding: 46px 0; }
+
+    .hero {
+      padding: 58px 0 42px;
+      background:
+        radial-gradient(circle at 88% 8%, rgba(37, 99, 235, 0.11), transparent 28%),
+        linear-gradient(180deg, #ffffff 0%, #f7f8fb 100%);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero-main {
+      max-width: 980px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .eyebrow {
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    h1, h2, h3, h4, p { margin: 0; }
+
+    h1 {
+      font-size: clamp(34px, 4.2vw, 56px);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
+
+    h2 {
+      font-size: clamp(25px, 2.7vw, 36px);
+      line-height: 1.16;
+      letter-spacing: -0.025em;
+    }
+
+    h3 {
+      font-size: 20px;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-main p {
+      margin: 17px auto 0;
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 820px;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--text);
+      font-weight: 800;
+      font-size: 14px;
+      transition: 0.18s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      border-color: var(--blue);
+      color: var(--blue);
+    }
+
+    .btn.primary {
+      background: var(--blue);
+      color: white;
+      border-color: var(--blue);
+    }
+
+    .btn.disabled {
+      opacity: 0.48;
+      cursor: default;
+      pointer-events: none;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-teaser-wrap {
+      margin: 30px auto 0;
+      max-width: 1040px;
+    }
+
+    .hero-video-card {
+      padding: 18px;
+    }
+
+    .hero-video-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+
+    .hero-video-head p {
+      margin: 4px 0 0;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .video-placeholder {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 16px;
+      background: #000;
+      border: 1px solid #dbe6ff;
+      overflow: hidden;
+    }
+
+    .real-video,
+    .real-img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      border-radius: inherit;
+    }
+
+    .real-video { background: #000; }
+    .real-img { background: transparent; }
+
+    .real-video.contain,
+    .real-img.contain {
+      object-fit: contain;
+    }
+
+    .section-head {
+      margin-bottom: 22px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      max-width: 790px;
+      margin-top: 10px;
+      font-size: 15px;
+    }
+
+
+    /* Align section headings with their corresponding cards. */
+    #comparison .section-head {
+      width: min(1240px, 100%);
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #additional-results .section-head {
+      width: min(1180px, 100%);
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+
+    .main-comparison {
+      width: min(1240px, 100%);
+      margin: 0 auto;
+      padding: 20px;
+      border-radius: 22px;
+    }
+
+    .comparison-note {
+      margin-bottom: 16px;
+      padding: 12px 14px;
+      border: 1px solid #dbe6ff;
+      background: #f5f8ff;
+      border-radius: 14px;
+      color: #39527e;
+      font-size: 14px;
+    }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .tab-btn {
+      border: 0;
+      cursor: pointer;
+      background: #eef2ff;
+      color: #39445a;
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-weight: 850;
+      transition: 0.18s ease;
+    }
+
+    .tab-btn:hover { transform: translateY(-1px); }
+
+    .tab-btn.active {
+      background: var(--blue);
+      color: white;
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.18);
+    }
+
+    .case-top {
+      display: grid;
+      grid-template-columns: 0.72fr 1.28fr;
+      gap: 18px;
+      align-items: stretch;
+      margin-bottom: 18px;
+    }
+
+    .task-card, .instruction-card {
+      padding: 18px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: #ffffff;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .task-card p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 5px;
+    }
+
+    .case-selector {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .case-btn {
+      cursor: pointer;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      background: #fbfcff;
+      padding: 9px;
+      text-align: left;
+      transition: 0.18s ease;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.035);
+    }
+
+    .case-btn:hover {
+      transform: translateY(-2px);
+      border-color: #b8cef8;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.07);
+    }
+
+    .case-btn.active {
+      border-color: var(--blue);
+      background: #f7faff;
+      box-shadow:
+        0 0 0 3px rgba(37, 99, 235, 0.12),
+        0 12px 28px rgba(37, 99, 235, 0.08);
+    }
+
+    .case-preview {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      border-radius: 12px;
+      border: 1px solid #dbe6ff;
+      background: linear-gradient(135deg, #eef4ff 0%, #dce9ff 100%);
+      color: #4770bd;
+      font-size: 12px;
+      line-height: 1.12;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8px;
+      margin-bottom: 8px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .case-name {
+      font-size: 13px;
+      font-weight: 950;
+      line-height: 1.12;
+      color: #0f172a;
+    }
+
+    .instruction-title-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .instruction-text {
+      color: var(--text);
+      font-weight: 850;
+      font-size: 16px;
+      margin-top: 4px;
+    }
+
+    .instruction-subtext {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 4px;
+    }
+
+    .geometry-toggle,
+    .utility-btn {
+      border: 0;
+      cursor: pointer;
+      background: var(--blue);
+      color: #ffffff;
+      padding: 9px 12px;
+      border-radius: 999px;
+      font-weight: 900;
+      font-size: 12px;
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.18);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+      white-space: nowrap;
+    }
+
+    .geometry-toggle:hover,
+    .utility-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px rgba(37, 99, 235, 0.24);
+      background: var(--blue-2);
+    }
+
+    .utility-btn.secondary {
+      background: #e9f1ff;
+      color: var(--blue-2);
+      box-shadow: none;
+    }
+
+    .instruction-visuals { margin-top: 16px; }
+
+    .instruction-stage {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 0fr);
+      gap: 0;
+      align-items: start;
+      transition: grid-template-columns 0.42s cubic-bezier(0.2, 0.8, 0.2, 1), gap 0.42s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .instruction-stage.open {
+      grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+      gap: 14px;
+    }
+
+    .overlay-stage {
+      width: min(82%, 420px);
+      margin: 0 auto;
+      transition: width 0.42s cubic-bezier(0.2, 0.8, 0.2, 1), margin 0.42s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .instruction-stage.open .overlay-stage {
+      width: 100%;
+      margin: 0;
+    }
+
+    .geometry-streams-panel {
+      min-width: 0;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateX(22px) scale(0.985);
+      pointer-events: none;
+      transition: opacity 0.34s ease 0.06s, transform 0.42s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .instruction-stage.open .geometry-streams-panel {
+      opacity: 1;
+      transform: translateX(0) scale(1);
+      pointer-events: auto;
+    }
+
+    .geometry-streams-inner { min-width: 320px; }
+
+    .geometry-panel-head {
+      margin-bottom: 10px;
+    }
+
+    .geometry-panel-title {
+      font-size: 14px;
+      font-weight: 950;
+      color: #172033;
+    }
+
+    .geometry-panel-note {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+      margin-top: 3px;
+    }
+
+    .instruction-media-card {
+      position: relative;
+      border-radius: 16px;
+      border: 1px solid #dbe6ff;
+      background: #ffffff;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.035);
+    }
+
+    .instruction-media-label {
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      z-index: 3;
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 8px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.92);
+      color: #1d4ed8;
+      font-size: 11px;
+      font-weight: 900;
+      pointer-events: none;
+      box-shadow: 0 6px 16px rgba(15, 23, 42, 0.10);
+    }
+
+    .input-overlay-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 280px;
+      padding: 0;
+      color: #2f5fb8;
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .input-overlay-box .real-img,
+    .gi-box .real-img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      background: #ffffff;
+    }
+
+    .input-overlay-box .real-video,
+    .gi-box .real-video {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1 / 1;
+      object-fit: contain;
+      background: #000;
+    }
+
+    .gi-collage {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .gi-box {
+      min-height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #52627c;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 900;
+      padding: 0;
+    }
+
+    .comparison-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 12px 0;
+    }
+
+    .toolbar-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .small-note {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .comparison-row {
+      display: grid;
+      gap: 14px;
+      align-items: start;
+    }
+
+    .result-card {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 13px;
+      background: #fff;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .result-card.ours {
+      border-color: #adc6ff;
+      background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+    }
+
+    .result-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .result-name {
+      font-size: 14px;
+      font-weight: 950;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: #f2f4f8;
+      color: #4b5563;
+      font-size: 11px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .badge.ours {
+      background: var(--blue);
+      color: white;
+    }
+
+    .badge.window {
+      background: #eaf1ff;
+      color: var(--blue-2);
+    }
+
+    .square-video {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 15px;
+      border: 1px solid #dbe6ff;
+      background: #000;
+      color: #52627c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0;
+      font-size: 14px;
+      font-weight: 900;
+      overflow: hidden;
+    }
+
+    .square-video a,
+    .video-placeholder a {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+
+    /* Additional capability modules */
+    .additional-shell {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      padding: 20px;
+      border-radius: 22px;
+    }
+
+    .additional-note {
+      margin-bottom: 16px;
+      padding: 12px 14px;
+      border: 1px solid #dbe6ff;
+      background: #f5f8ff;
+      border-radius: 14px;
+      color: #39527e;
+      font-size: 14px;
+    }
+
+    .capability-track {
+      display: flex;
+      gap: 0;
+      overflow-x: hidden;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      padding: 2px;
+    }
+
+    .capability-module {
+      min-width: 100%;
+      scroll-snap-align: start;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: #ffffff;
+      box-shadow: var(--shadow-soft);
+      padding: 18px;
+    }
+
+    .capability-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .capability-kicker {
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .capability-title {
+      font-size: 20px;
+      font-weight: 950;
+      line-height: 1.22;
+      letter-spacing: -0.01em;
+    }
+
+    .capability-desc {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 6px;
+      max-width: 820px;
+    }
+
+    .module-index {
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--blue-soft);
+      color: var(--blue-2);
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .media-tile {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: #fff;
+      padding: 10px;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.035);
+    }
+
+    .media-tile-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .media-tile-title {
+      font-size: 13px;
+      font-weight: 950;
+      color: #172033;
+      line-height: 1.15;
+    }
+
+    .media-window {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 13px;
+      border: 1px solid #dbe6ff;
+      background: #000;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #52627c;
+      font-size: 13px;
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .media-window a {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .group-label {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #39445a;
+      font-size: 13px;
+      font-weight: 950;
+      margin-top: 4px;
+    }
+
+    .group-label:first-child { margin-top: 0; }
+    .group-label::after { content: ""; height: 1px; background: var(--line); flex: 1; }
+
+    .carousel-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .carousel-arrow-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .carousel-arrow {
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      border: 1px solid #cfe0ff;
+      background: #ffffff;
+      color: var(--blue-2);
+      cursor: pointer;
+      font-size: 24px;
+      font-weight: 950;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 22px rgba(15, 23, 42, 0.07);
+      transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+    }
+
+    .carousel-arrow:hover {
+      transform: translateY(-1px);
+      border-color: var(--blue);
+      background: #f7faff;
+    }
+
+    .carousel-status {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      text-align: right;
+    }
+
+    .capability-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .capability-tab {
+      border: 1px solid #dbe6ff;
+      border-radius: 999px;
+      background: #f5f8ff;
+      color: #39527e;
+      padding: 9px 13px;
+      font-size: 12px;
+      font-weight: 850;
+      cursor: pointer;
+    }
+
+    .capability-tab.active {
+      border-color: var(--blue);
+      background: var(--blue);
+      color: #ffffff;
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.16);
+    }
+
+    .capability-module { animation: capability-enter 0.28s ease; }
+
+    @keyframes capability-enter {
+      from { opacity: 0; transform: translateX(10px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @media (max-width: 1160px) {
+      .capability-module { min-width: 100%; }
+      .media-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 760px) {
+      .capability-head { display: block; }
+      .module-index { margin-top: 10px; }
+      .media-grid { grid-template-columns: 1fr; }
+      .carousel-controls { display: block; }
+      .carousel-arrow-row { margin-top: 10px; }
+      .carousel-status { margin-top: 10px; text-align: left; }
+    }
+
+
+    .footer {
+      padding: 34px 0 56px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 1160px) {
+      .case-top { grid-template-columns: 1fr; }
+      .comparison-row { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+      .instruction-stage,
+      .instruction-stage.open {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+      .overlay-stage,
+      .instruction-stage.open .overlay-stage {
+        width: min(100%, 560px);
+        margin: 0 auto;
+      }
+      .geometry-streams-panel { max-height: 0; }
+      .instruction-stage.open .geometry-streams-panel { max-height: 1200px; }
+      .geometry-streams-inner { min-width: 0; }
+    }
+
+    @media (max-width: 760px) {
+      .container { width: min(var(--max), calc(100vw - 26px)); }
+      .section { padding: 36px 0; }
+      .case-selector { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .comparison-row { grid-template-columns: 1fr !important; }
+      .gi-collage { grid-template-columns: 1fr; }
+      .section-head { display: block; }
+      .hero-video-head,
+      .instruction-title-row,
+      .comparison-toolbar { display: block; }
+      .geometry-toggle,
+      .utility-btn { margin-top: 10px; }
+    }
+
+    .method-shell,
+    .paper-figure-card {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    #method .section-head,
+    #training .section-head {
+      width: min(1180px, 100%);
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .title-lockup {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 22px;
+    }
+
+    .title-lockup h1 { min-width: 0; }
+
+    .brand-mark {
+      flex: 0 0 72px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .brand-mark-label {
+      margin-top: 5px;
+      color: var(--blue-2);
+      font-size: 13px;
+      font-weight: 950;
+      letter-spacing: 0;
+      line-height: 1;
+    }
+
+    .magic-cube-mark {
+      width: 72px;
+      height: 72px;
+      flex: 0 0 72px;
+      perspective: 420px;
+    }
+
+    .magic-cube {
+      position: relative;
+      width: 48px;
+      height: 48px;
+      margin: 12px;
+      transform: rotateX(-24deg) rotateY(-38deg);
+      transform-style: preserve-3d;
+    }
+
+    .magic-face {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 2px;
+      padding: 3px;
+      border: 1px solid #101827;
+      border-radius: 4px;
+      background: #172033;
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.18);
+      backface-visibility: hidden;
+    }
+
+    .magic-face.front { transform: translateZ(24px); }
+    .magic-face.right { transform: rotateY(90deg) translateZ(24px); }
+    .magic-face.top { transform: rotateX(90deg) translateZ(24px); }
+
+    .magic-tile { border-radius: 2px; background: #2563eb; }
+    .magic-face.front .magic-tile:nth-child(2),
+    .magic-face.front .magic-tile:nth-child(6) { background: #60a5fa; }
+    .magic-face.front .magic-tile:nth-child(5) { background: #f8fafc; }
+    .magic-face.front .magic-tile:nth-child(8) { background: #1d4ed8; }
+
+    .magic-face.right .magic-tile { background: #f97316; }
+    .magic-face.right .magic-tile:nth-child(3),
+    .magic-face.right .magic-tile:nth-child(7) { background: #fb923c; }
+    .magic-face.right .magic-tile:nth-child(5) { background: #facc15; }
+
+    .magic-face.top .magic-tile { background: #06b6d4; }
+    .magic-face.top .magic-tile:nth-child(1),
+    .magic-face.top .magic-tile:nth-child(9) { background: #22d3ee; }
+    .magic-face.top .magic-tile:nth-child(5) { background: #a7f3d0; }
+
+    .method-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .method-step {
+      min-width: 0;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: #fbfcff;
+    }
+
+    .method-step-index {
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .method-step p {
+      min-height: 42px;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .method-media {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      margin-top: 12px;
+      overflow: hidden;
+      border: 1px solid #dbe6ff;
+      border-radius: 13px;
+      background: #000;
+    }
+
+    .method-media.dual {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: #fff;
+    }
+
+    .method-media-frame {
+      position: relative;
+      min-width: 0;
+      overflow: hidden;
+    }
+
+    .method-media-frame:first-child { border-right: 1px solid #dbe6ff; }
+
+    .method-media img,
+    .method-media video {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: contain;
+    }
+
+    .method-media-label {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      z-index: 2;
+      padding: 4px 6px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.92);
+      color: var(--blue-2);
+      font-size: 9px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .paper-figure-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 14px;
+    }
+
+    .paper-caption {
+      max-width: 840px;
+      margin: 13px auto 0;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    @media (max-width: 1160px) {
+      .method-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 760px) {
+      .title-lockup { flex-direction: column; gap: 8px; }
+      .brand-mark { transform: scale(0.88); margin-bottom: -6px; }
+      .method-grid { grid-template-columns: 1fr; }
+      .method-step p { min-height: 0; }
+      .method-shell,
+      .paper-figure-card { padding: 12px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="hero">
+    <div class="container">
+      <div class="hero-main">
+        <div class="title-lockup">
+          <div class="brand-mark" aria-hidden="true">
+            <div class="magic-cube-mark">
+              <div class="magic-cube">
+              <div class="magic-face front">
+                <span class="magic-tile"></span><span class="magic-tile"></span><span class="magic-tile"></span>
+                <span class="magic-tile"></span><span class="magic-tile"></span><span class="magic-tile"></span>
+                <span class="magic-tile"></span><span class="magic-tile"></span><span class="magic-tile"></span>
+              </div>
+              <div class="magic-face right">
+                <span class="magic-tile"></span><span class="magic-tile"></span><span class="magic-tile"></span>
+                <span class="magic-tile"></span><span class="magic-tile"></span><span class="magic-tile"></span>
+                <span class="magic-tile"></span><span class="magic-tile"></span><span class="magic-tile"></span>
+              </div>
+              <div class="magic-face top">
+                <span class="magic-tile"></span><span class="magic-tile"></span><span class="magic-tile"></span>
+                <span class="magic-tile"></span><span class="magic-tile"></span><span class="magic-tile"></span>
+                <span class="magic-tile"></span><span class="magic-tile"></span><span class="magic-tile"></span>
+              </div>
+            </div>
+            </div>
+            <span class="brand-mark-label">GIVE</span>
+          </div>
+          <h1>Geometry-Instructed Video Editing</h1>
+        </div>
+        <p>
+          A unified framework for object-level geometric video editing with compact,
+          video-aligned pre/post geometry instructions.
+        </p>
+        <div class="button-row">
+          <a class="btn primary" href="paper.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+          <span class="btn disabled" aria-disabled="true">arXiv (coming soon)</span>
+          <span class="btn disabled" aria-disabled="true">Code (coming soon)</span>
+        </div>
+      </div>
+
+      <div class="hero-teaser-wrap" id="overview">
+        <div class="card hero-video-card">
+          <div class="hero-video-head">
+            <div>
+              <h3>Project Overview</h3>
+              <p>Unified geometric control across object-level video editing tasks.</p>
+            </div>
+            <span class="badge window">overview</span>
+          </div>
+          <div class="video-placeholder">
+            <video class="real-video sync-video" autoplay controls muted loop playsinline preload="metadata">
+              <source src="assets/videos/paper_teaser.m4v" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="section" id="method">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Core Representation</div>
+          <h2>Unified Pre/Post Geometry Instructions</h2>
+          <p>
+            GIVE represents an edit as a transition between pre-edit and post-edit 3D object states.
+            The trajectory case below is one example of the shared interface used across editing operators.
+          </p>
+        </div>
+      </div>
+
+      <div class="card method-shell">
+        <div class="method-grid">
+          <article class="method-step">
+            <div class="method-step-index">01 / Input</div>
+            <h3>Object and intent</h3>
+            <p>Identify the target and desired state change.</p>
+            <div class="method-media">
+              <img src="assets/instructions/trajectory/case1/input_overlay.jpg" alt="Target object and editing intent overlay">
+            </div>
+          </article>
+
+          <article class="method-step">
+            <div class="method-step-index">02 / Pre-state</div>
+            <h3>Current geometry</h3>
+            <p>Encode the object's current placement, extent, and orientation.</p>
+            <div class="method-media dual">
+              <div class="method-media-frame">
+                <span class="method-media-label">Depth-box</span>
+                <video muted loop playsinline preload="metadata">
+                  <source src="assets/instructions/trajectory/case1/pre_depth.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="method-media-frame">
+                <span class="method-media-label">Orientation-box</span>
+                <video muted loop playsinline preload="metadata">
+                  <source src="assets/instructions/trajectory/case1/pre_orient.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </article>
+
+          <article class="method-step">
+            <div class="method-step-index">03 / Post-state</div>
+            <h3>Target geometry</h3>
+            <p>Specify the intended object state across viewpoint and time.</p>
+            <div class="method-media dual">
+              <div class="method-media-frame">
+                <span class="method-media-label">Depth-box</span>
+                <video muted loop playsinline preload="metadata">
+                  <source src="assets/instructions/trajectory/case1/post_depth.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="method-media-frame">
+                <span class="method-media-label">Orientation-box</span>
+                <video muted loop playsinline preload="metadata">
+                  <source src="assets/instructions/trajectory/case1/post_orient.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </article>
+
+          <article class="method-step">
+            <div class="method-step-index">04 / Output</div>
+            <h3>Edited video</h3>
+            <p>Execute the specified state transition while preserving the scene.</p>
+            <div class="method-media">
+              <video muted loop playsinline preload="metadata">
+                <source src="assets/videos/trajectory/case1/ours.mp4" type="video/mp4">
+              </video>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="training">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Training Supervision</div>
+          <h2>Procedural Paired Data</h2>
+          <p>A graphics engine executes sampled edit programs and renders controlled before/after training pairs.</p>
+        </div>
+      </div>
+      <figure class="card paper-figure-card">
+        <img src="assets/paper/procedural_pipeline.png" alt="Procedural pipeline for asset, attribute, camera, operator, and paired rendering sampling">
+        <figcaption class="paper-caption">Matched rendering isolates the intended geometric edit while keeping scene conditions aligned.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" id="comparison">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Qualitative Results</div>
+          <h2>Side-by-Side Video Comparisons</h2>
+          <p>
+            Compare the same input and edit intent across applicable methods.
+          </p>
+        </div>
+      </div>
+
+      <div class="card main-comparison">
+        <div class="comparison-note">
+          Each comparison uses the same source video and edit intent. The number of baselines varies because
+          different methods support different operators and input interfaces.
+        </div>
+
+        <div class="tabs" id="tabs"></div>
+
+        <div class="case-top">
+          <div class="task-card">
+            <h3 id="taskTitle">Removal</h3>
+            <p id="taskDescription"></p>
+            <div class="case-selector" id="caseSelector"></div>
+          </div>
+
+          <div class="instruction-card">
+            <div class="instruction-title-row">
+              <div>
+                <h3 id="caseTitle">Case 1</h3>
+                <div class="instruction-text" id="instructionText">Instruction text placeholder.</div>
+                <div class="instruction-subtext" id="instructionSubtext">Compact visual instruction shown below.</div>
+              </div>
+              <button class="geometry-toggle" id="geometryToggle" type="button" aria-expanded="false">Show Geometry</button>
+            </div>
+
+            <div class="instruction-visuals" id="instructionVisuals"></div>
+          </div>
+        </div>
+
+        <div class="comparison-toolbar">
+          <div class="toolbar-left">
+            <span class="badge window">Aligned window</span>
+            <span class="small-note" id="caseProtocol">Videos are temporally aligned for comparison.</span>
+          </div>
+          <button class="utility-btn secondary" id="restartVideos" type="button">Restart videos</button>
+        </div>
+
+        <div class="comparison-row" id="comparisonRow"></div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section" id="additional-results">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Editing Behaviors</div>
+          <h2>More Capabilities</h2>
+          <p>
+            These examples complement the side-by-side comparisons by highlighting targeted capabilities: edit-consistent secondary effects, flexible 3D trajectory control, and controllable rotation angles.
+          </p>
+        </div>
+      </div>
+
+      <div class="card additional-shell">
+        <div class="capability-track" id="additionalTrack"></div>
+
+        <div class="carousel-controls">
+          <div class="carousel-arrow-row">
+            <button class="carousel-arrow" id="additionalPrev" type="button" aria-label="Previous module">‹</button>
+            <button class="carousel-arrow" id="additionalNext" type="button" aria-label="Next module">›</button>
+          </div>
+          <div class="carousel-status" id="additionalStatus">Module 1 / 3 · Auto-playing</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function isVideo(src) {
+      return src && /\.(mp4|webm|mov)$/i.test(src);
+    }
+
+    function escapeAttr(text) {
+      return String(text || "").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    }
+
+    function mediaHTML(src, fallbackText, mode = "cover", clickable = false) {
+      if (!src) return `<span>${fallbackText}</span>`;
+
+      const fitClass = mode === "contain" ? "contain" : "";
+      const fallback = escapeAttr(fallbackText.replace(/<br\s*\/?>/gi, " "));
+
+      let inner = "";
+      if (isVideo(src)) {
+        const type = src.toLowerCase().endsWith(".webm") ? "video/webm" : "video/mp4";
+        inner = `
+          <video class="real-video ${fitClass} sync-video" muted loop playsinline preload="metadata">
+            <source src="${src}" type="${type}">
+          </video>
+        `;
+      } else {
+        inner = `<img class="real-img ${fitClass}" src="${src}" alt="${fallback}">`;
+      }
+
+      if (!clickable) return inner;
+      return `<a href="${src}" target="_blank" rel="noopener noreferrer" title="Open media in a new tab">${inner}</a>`;
+    }
+
+    let viewportVideoObserver = null;
+
+    function observeViewportVideos() {
+      if (!("IntersectionObserver" in window)) return;
+      if (viewportVideoObserver) viewportVideoObserver.disconnect();
+
+      viewportVideoObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          const video = entry.target;
+          if (entry.isIntersecting) {
+            const playPromise = video.play();
+            if (playPromise && typeof playPromise.catch === "function") playPromise.catch(() => {});
+          } else {
+            video.pause();
+          }
+        });
+      }, { threshold: 0.2 });
+
+      document.querySelectorAll("video").forEach(video => viewportVideoObserver.observe(video));
+    }
+
+    /*
+      Default asset naming rule:
+      assets/videos/{task}/case{n}/input.mp4
+      assets/videos/{task}/case{n}/ours.mp4
+      assets/videos/{task}/case{n}/{baselineSlug}.mp4
+      assets/previews/{task}_case{n}.jpg
+
+      assets/instructions/{task}/case{n}/input_overlay.jpg
+      assets/instructions/{task}/case{n}/pre_depth.jpg
+      assets/instructions/{task}/case{n}/pre_orient.jpg
+      assets/instructions/{task}/case{n}/post_depth.jpg
+      assets/instructions/{task}/case{n}/post_orient.jpg
+
+      For trajectory, geometry streams default to .mp4:
+      assets/instructions/trajectory/case{n}/pre_depth.mp4
+      assets/instructions/trajectory/case{n}/pre_orient.mp4
+      assets/instructions/trajectory/case{n}/post_depth.mp4
+      assets/instructions/trajectory/case{n}/post_orient.mp4
+    */
+
+    function methodSlug(name) {
+      const map = {
+        "VACE": "vace",
+        "ProPainter": "propainter",
+        "ROSE": "rose",
+        "Kling-O1": "kling",
+        "DragVideo": "dragvideo",
+        "DaS": "das"
+      };
+      return map[name] || name.toLowerCase().replace(/-/g, "").replace(/\s+/g, "_");
+    }
+
+    function instructionMediaExt(taskKey) {
+      return taskKey === "trajectory" ? "mp4" : "jpg";
+    }
+
+    const DATA = {
+      removal: {
+        title: "Removal",
+        description: "Remove the selected object while preserving non-edited regions.",
+        instruction: "Remove the selected target object.",
+        sub: "The pre-state identifies the target, while the post-state is empty to indicate target absence.",
+        protocol: "Post-state geometry is empty for removal.",
+        baselines: [
+          { name: "VACE", tag: "Unified" },
+          { name: "ProPainter", tag: "Inpainting" },
+          { name: "ROSE", tag: "Inpainting" }
+        ],
+        cases: [
+          { title: "Case 1" },
+          { title: "Case 2" },
+          { title: "Case 3" },
+          { title: "Case 4" }
+        ]
+      },
+
+      rotation: {
+        title: "Rotation",
+        description: "Rotate the selected object according to the desired post-edit orientation.",
+        instruction: "Rotate the selected target according to the post-edit orientation.",
+        sub: "Pre/post orientation streams specify the intended object-level heading transition.",
+        protocol: "Orientation streams specify the pre/post heading transition.",
+        baselines: [
+          { name: "DragVideo", tag: "Drag-based" },
+          { name: "Kling-O1", tag: "Unified" }
+        ],
+        cases: [
+          { title: "Case 1" },
+          { title: "Case 2" },
+          { title: "Case 3" },
+          { title: "Case 4" }
+        ]
+      },
+
+      translation: {
+        title: "Translation",
+        description: "Move the selected object to a desired post-edit 3D location.",
+        instruction: "Move the selected target to the post-edit location.",
+        sub: "Pre/post depth streams specify the target object displacement.",
+        protocol: "Pre/post depth boxes specify the target displacement.",
+        baselines: [
+          { name: "DragVideo", tag: "Drag-based" },
+          { name: "Kling-O1", tag: "Unified" }
+        ],
+        cases: [
+          { title: "Case 1" },
+          { title: "Case 2" },
+          { title: "Case 3" },
+          { title: "Case 4" }
+        ]
+      },
+
+      scaling: {
+        title: "Scaling",
+        description: "Scale the selected object while keeping scene placement coherent.",
+        instruction: "Scale the selected target according to the post-edit extent.",
+        sub: "The post-state geometry specifies the target object size and placement.",
+        protocol: "Post-state box extent indicates the target scale.",
+        baselines: [
+          { name: "DragVideo", tag: "Drag-based" },
+          { name: "Kling-O1", tag: "Unified" }
+        ],
+        cases: [
+          { title: "Case 1" },
+          { title: "Case 2" },
+          { title: "Case 3" },
+          { title: "Case 4" }
+        ]
+      },
+
+      duplication: {
+        title: "Duplication",
+        description: "Duplicate the selected object into multiple post-edit instances.",
+        instruction: "Duplicate the selected target according to the post-edit geometry.",
+        sub: "The post-state streams contain multiple target boxes for the spawned instances.",
+        protocol: "Post-state streams contain multiple target boxes.",
+        baselines: [
+          { name: "Kling-O1", tag: "Unified" }
+        ],
+        cases: [
+          { title: "Case 1" },
+          { title: "Case 2" },
+          { title: "Case 3" },
+          { title: "Case 4" }
+        ]
+      },
+
+      trajectory: {
+        title: "Trajectory Editing",
+        description: "Move the selected object along a desired time-varying trajectory.",
+        instruction: "Move the selected target along the post-edit trajectory.",
+        sub: "The post-state geometry specifies time-varying target object states across the video.",
+        protocol: "Geometry instructions are shown as temporal streams for trajectory editing.",
+        baselines: [
+          { name: "DaS", tag: "Trajectory" }
+        ],
+        cases: [
+          { title: "Case 1" },
+          { title: "Case 2" },
+          { title: "Case 3" },
+          { title: "Case 4" }
+        ]
+      }
+    };
+
+    const order = ["removal", "rotation", "translation", "scaling", "duplication", "trajectory"];
+
+    function addDefaultAssets() {
+      order.forEach(taskKey => {
+        const task = DATA[taskKey];
+
+        task.cases.forEach((c, idx) => {
+          const caseIndex = idx + 1;
+          const base = `assets/videos/${taskKey}/case${caseIndex}`;
+          const instructionBase = `assets/instructions/${taskKey}/case${caseIndex}`;
+          const streamExt = instructionMediaExt(taskKey);
+
+          c.preview = c.preview || `assets/previews/${taskKey}_case${caseIndex}.jpg`;
+
+          c.instructionAssets = c.instructionAssets || {
+            inputOverlay: `${instructionBase}/input_overlay.jpg`,
+            preDepth: `${instructionBase}/pre_depth.${streamExt}`,
+            preOrient: `${instructionBase}/pre_orient.${streamExt}`,
+            postDepth: `${instructionBase}/post_depth.${streamExt}`,
+            postOrient: `${instructionBase}/post_orient.${streamExt}`
+          };
+
+          c.videos = c.videos || {
+            input: `${base}/input.mp4`,
+            ours: `${base}/ours.mp4`
+          };
+
+          task.baselines.forEach(b => {
+            if (!c.videos[b.name]) c.videos[b.name] = `${base}/${methodSlug(b.name)}.mp4`;
+          });
+        });
+      });
+    }
+
+    addDefaultAssets();
+
+    let currentTask = "removal";
+    let currentCase = 0;
+    let showGeometryInstruction = false;
+
+    const tabs = document.getElementById("tabs");
+    const taskTitle = document.getElementById("taskTitle");
+    const taskDescription = document.getElementById("taskDescription");
+    const caseSelector = document.getElementById("caseSelector");
+    const caseTitle = document.getElementById("caseTitle");
+    const instructionText = document.getElementById("instructionText");
+    const instructionSubtext = document.getElementById("instructionSubtext");
+    const caseProtocol = document.getElementById("caseProtocol");
+    const comparisonRow = document.getElementById("comparisonRow");
+    const instructionVisuals = document.getElementById("instructionVisuals");
+    const geometryToggle = document.getElementById("geometryToggle");
+    const restartVideos = document.getElementById("restartVideos");
+
+    function renderTabs() {
+      tabs.innerHTML = "";
+      order.forEach(key => {
+        const b = document.createElement("button");
+        b.className = "tab-btn" + (key === currentTask ? " active" : "");
+        b.textContent = DATA[key].title;
+        b.onclick = () => {
+          currentTask = key;
+          currentCase = 0;
+          showGeometryInstruction = false;
+          renderAll();
+        };
+        tabs.appendChild(b);
+      });
+    }
+
+    function renderTask() {
+      const task = DATA[currentTask];
+      taskTitle.textContent = task.title;
+      taskDescription.textContent = task.description;
+      caseProtocol.textContent = task.protocol;
+    }
+
+    function renderCases() {
+      const task = DATA[currentTask];
+      caseSelector.innerHTML = "";
+
+      task.cases.forEach((c, i) => {
+        const div = document.createElement("button");
+        div.className = "case-btn" + (i === currentCase ? " active" : "");
+        div.innerHTML = `
+          <div class="case-preview">
+            ${mediaHTML(c.preview, `${task.title.toUpperCase()}<br>CASE ${i + 1}`, "cover")}
+          </div>
+          <div class="case-name">${c.title}</div>
+        `;
+        div.onclick = () => {
+          currentCase = i;
+          showGeometryInstruction = false;
+          renderAll(false);
+        };
+        caseSelector.appendChild(div);
+      });
+    }
+
+    function updateGeometryToggle() {
+      geometryToggle.textContent = showGeometryInstruction ? "Hide Geometry" : "Show Geometry";
+      geometryToggle.setAttribute("aria-expanded", showGeometryInstruction ? "true" : "false");
+    }
+
+    function renderInstruction() {
+      const task = DATA[currentTask];
+      const c = task.cases[currentCase];
+      const a = c.instructionAssets || {};
+      const panelNote = currentTask === "trajectory"
+        ? "Temporal streams visualize the time-varying object trajectory."
+        : "Representative frames summarize the pre/post object state.";
+
+      caseTitle.textContent = `${c.title} · ${task.title}`;
+      instructionText.textContent = task.instruction;
+      instructionSubtext.textContent = task.sub;
+
+      instructionVisuals.innerHTML = `
+        <div class="instruction-stage ${showGeometryInstruction ? "open" : ""}">
+          <div class="overlay-stage">
+            <div class="instruction-media-card input-overlay-box">
+              <span class="instruction-media-label">Input Overlay</span>
+              ${mediaHTML(a.inputOverlay, "INPUT OVERLAY IMAGE", "contain", true)}
+            </div>
+          </div>
+
+          <div class="geometry-streams-panel">
+            <div class="geometry-streams-inner">
+              <div class="geometry-panel-head">
+                <div class="geometry-panel-title">Pre/Post Geometry Instructions</div>
+                <div class="geometry-panel-note">${panelNote}</div>
+              </div>
+              <div class="gi-collage">
+                <div class="instruction-media-card gi-box">
+                  <span class="instruction-media-label">Pre Depth</span>
+                  ${mediaHTML(a.preDepth, "PRE-DEPTH<br>INSTRUCTION", "contain", true)}
+                </div>
+                <div class="instruction-media-card gi-box">
+                  <span class="instruction-media-label">Pre Orientation</span>
+                  ${mediaHTML(a.preOrient, "PRE-ORIENTATION<br>INSTRUCTION", "contain", true)}
+                </div>
+                <div class="instruction-media-card gi-box">
+                  <span class="instruction-media-label">Post Depth</span>
+                  ${mediaHTML(a.postDepth, "POST-DEPTH<br>INSTRUCTION", "contain", true)}
+                </div>
+                <div class="instruction-media-card gi-box">
+                  <span class="instruction-media-label">Post Orientation</span>
+                  ${mediaHTML(a.postOrient, "POST-ORIENTATION<br>INSTRUCTION", "contain", true)}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+
+      updateGeometryToggle();
+      restartAllVideos(false);
+    }
+
+    function renderComparison() {
+      const task = DATA[currentTask];
+      const c = task.cases[currentCase];
+
+      const cards = [];
+      cards.push({ name: "Input", tag: "Input", key: "input", ours: false });
+      task.baselines.forEach(b => cards.push({ name: b.name, tag: b.tag, key: b.name, ours: false }));
+      cards.push({ name: "Ours (GIVE)", tag: "Ours", key: "ours", ours: true });
+
+      comparisonRow.style.gridTemplateColumns = `repeat(${cards.length}, minmax(0, 1fr))`;
+      comparisonRow.innerHTML = cards.map(card => {
+        const videoHTML = c.videos && c.videos[card.key]
+          ? mediaHTML(c.videos[card.key], `${task.title.toUpperCase()}<br>${card.name.toUpperCase()}`, "cover", true)
+          : `<span>${task.title.toUpperCase()}<br>${card.name.toUpperCase()}<br>VIDEO</span>`;
+
+        return `
+          <div class="result-card ${card.ours ? "ours" : ""}">
+            <div class="result-head">
+              <div class="result-name">${card.name}</div>
+              <span class="badge ${card.ours ? "ours" : ""}">${card.tag}</span>
+            </div>
+            <div class="square-video">${videoHTML}</div>
+          </div>
+        `;
+      }).join("");
+
+      restartAllVideos(false);
+    }
+
+    function renderAll(renderTabsFlag = true) {
+      if (renderTabsFlag) renderTabs();
+      renderTask();
+      renderCases();
+      renderInstruction();
+      renderComparison();
+      updateGeometryToggle();
+      observeViewportVideos();
+    }
+
+    function restartAllVideos(forcePlay = true) {
+      const videos = document.querySelectorAll(".sync-video");
+      videos.forEach(v => {
+        try {
+          v.currentTime = 0;
+          if (forcePlay) {
+            const playPromise = v.play();
+            if (playPromise && typeof playPromise.catch === "function") playPromise.catch(() => {});
+          }
+        } catch (e) {}
+      });
+    }
+
+    function restartAdditionalVideos(forcePlay = false) {
+      const videos = document.querySelectorAll("#additional-results .sync-video");
+      videos.forEach(v => {
+        try {
+          v.currentTime = 0;
+          if (forcePlay) {
+            const playPromise = v.play();
+            if (playPromise && typeof playPromise.catch === "function") playPromise.catch(() => {});
+          }
+        } catch (e) {}
+      });
+    }
+
+    geometryToggle.addEventListener("click", () => {
+      showGeometryInstruction = !showGeometryInstruction;
+      renderInstruction();
+    });
+
+    restartVideos.addEventListener("click", () => {
+      restartAllVideos(true);
+    });
+
+
+    const ADDITIONAL_RESULTS = [
+      {
+        key: "secondary_effects",
+        index: "01",
+        navLabel: "Secondary Effects",
+        kicker: "Edit-consistent effects",
+        title: "Consistent Secondary Effects",
+        description: "Shadows and reflections respond consistently to the edited geometry.",
+        layout: "pairs",
+        items: [
+          { label: "Example 1", input: "assets/additional/secondary_effects/example1/input.mp4", ours: "assets/additional/secondary_effects/example1/ours.mp4" },
+          { label: "Example 2", input: "assets/additional/secondary_effects/example2/input.mp4", ours: "assets/additional/secondary_effects/example2/ours.mp4" },
+          { label: "Example 3", input: "assets/additional/secondary_effects/example3/input.mp4", ours: "assets/additional/secondary_effects/example3/ours.mp4" },
+          { label: "Example 4", input: "assets/additional/secondary_effects/example4/input.mp4", ours: "assets/additional/secondary_effects/example4/ours.mp4" }
+        ]
+      },
+      {
+        key: "flexible_trajectory",
+        index: "02",
+        navLabel: "Trajectories",
+        kicker: "Time-varying geometry",
+        title: "Flexible 3D Trajectory Editing",
+        description: "The same source video follows different time-varying target trajectories.",
+        layout: "groups",
+        groups: [
+          {
+            label: "Trajectory Group 1",
+            input: "assets/additional/flexible_trajectory/group1/input.mp4",
+            outputs: [
+              { label: "Trajectory A", src: "assets/additional/flexible_trajectory/group1/ours_1.mp4" },
+              { label: "Trajectory B", src: "assets/additional/flexible_trajectory/group1/ours_2.mp4" },
+              { label: "Trajectory C", src: "assets/additional/flexible_trajectory/group1/ours_3.mp4" }
+            ]
+          },
+          {
+            label: "Trajectory Group 2",
+            input: "assets/additional/flexible_trajectory/group2/input.mp4",
+            outputs: [
+              { label: "Trajectory A", src: "assets/additional/flexible_trajectory/group2/ours_1.mp4" },
+              { label: "Trajectory B", src: "assets/additional/flexible_trajectory/group2/ours_2.mp4" },
+              { label: "Trajectory C", src: "assets/additional/flexible_trajectory/group2/ours_3.mp4" }
+            ]
+          }
+        ]
+      },
+      {
+        key: "flexible_rotation",
+        index: "03",
+        navLabel: "Rotation Angles",
+        kicker: "Controllable orientation",
+        title: "Controllable Rotation Angles",
+        description: "The same source video is edited toward different target orientations.",
+        layout: "groups",
+        groups: [
+          {
+            label: "Rotation Group 1",
+            input: "assets/additional/flexible_rotation/group1/input.mp4",
+            outputs: [
+              { label: "Angle -30°", src: "assets/additional/flexible_rotation/group1/ours_1.mp4" },
+              { label: "Angle +30°", src: "assets/additional/flexible_rotation/group1/ours_2.mp4" },
+              { label: "Angle +45°", src: "assets/additional/flexible_rotation/group1/ours_3.mp4" }
+            ]
+          },
+          {
+            label: "Rotation Group 2",
+            input: "assets/additional/flexible_rotation/group2/input.mp4",
+            outputs: [
+              { label: "Angle -60°", src: "assets/additional/flexible_rotation/group2/ours_1.mp4" },
+              { label: "Angle -30°", src: "assets/additional/flexible_rotation/group2/ours_2.mp4" },
+              { label: "Angle +60°", src: "assets/additional/flexible_rotation/group2/ours_3.mp4" }
+            ]
+          }
+        ]
+      }
+    ];
+
+    let additionalIndex = 0;
+    let additionalAutoTimer = null;
+
+    function renderMediaTile(title, badge, src) {
+      return `
+        <div class="media-tile">
+          <div class="media-tile-head">
+            <div class="media-tile-title">${title}</div>
+            <span class="badge ${badge === "Ours" ? "ours" : ""}">${badge}</span>
+          </div>
+          <div class="media-window">
+            ${mediaHTML(src, `${title}<br>${badge}`, "cover", true)}
+          </div>
+        </div>
+      `;
+    }
+
+    function renderAdditionalResults() {
+      const track = document.getElementById("additionalTrack");
+      if (!track) return;
+
+      const activeModule = ADDITIONAL_RESULTS[additionalIndex];
+      track.innerHTML = [activeModule].map(module => {
+        let body = "";
+
+        if (module.layout === "pairs") {
+          const tiles = [];
+          module.items.forEach(item => {
+            tiles.push(renderMediaTile(`${item.label} · Input`, "Input", item.input));
+            tiles.push(renderMediaTile(`${item.label} · Ours`, "Ours", item.ours));
+          });
+          body = `<div class="media-grid">${tiles.join("")}</div>`;
+        }
+
+        if (module.layout === "groups") {
+          const rows = [];
+          module.groups.forEach(group => {
+            rows.push(`<div class="group-label">${group.label}</div>`);
+            rows.push(renderMediaTile("Input", "Input", group.input));
+            group.outputs.forEach(output => {
+              rows.push(renderMediaTile(output.label, "Ours", output.src));
+            });
+          });
+          body = `<div class="media-grid">${rows.join("")}</div>`;
+        }
+
+        return `
+          <article class="capability-module">
+            <div class="capability-head">
+              <div>
+                <div class="capability-kicker">${module.kicker}</div>
+                <div class="capability-title">${module.title}</div>
+                <div class="capability-desc">${module.description}</div>
+              </div>
+              <span class="module-index">Module ${module.index}</span>
+            </div>
+            ${body}
+          </article>
+        `;
+      }).join("");
+
+      const status = document.getElementById("additionalStatus");
+      if (status) status.textContent = `Module ${additionalIndex + 1} / ${ADDITIONAL_RESULTS.length} · Auto-playing`;
+
+      restartAdditionalVideos(false);
+      observeViewportVideos();
+    }
+
+    function goAdditional(delta, userInitiated = true) {
+      additionalIndex = (additionalIndex + delta + ADDITIONAL_RESULTS.length) % ADDITIONAL_RESULTS.length;
+      renderAdditionalResults();
+      if (userInitiated) restartAdditionalAutoplay();
+    }
+
+    function stopAdditionalAutoplay() {
+      if (additionalAutoTimer) {
+        window.clearInterval(additionalAutoTimer);
+        additionalAutoTimer = null;
+      }
+    }
+
+    function startAdditionalAutoplay() {
+      stopAdditionalAutoplay();
+      additionalAutoTimer = window.setInterval(() => goAdditional(1, false), 6500);
+    }
+
+    function restartAdditionalAutoplay() {
+      stopAdditionalAutoplay();
+      startAdditionalAutoplay();
+    }
+
+    document.getElementById("additionalPrev").addEventListener("click", () => goAdditional(-1, true));
+    document.getElementById("additionalNext").addEventListener("click", () => goAdditional(1, true));
+
+    const additionalShell = document.querySelector(".additional-shell");
+    if (additionalShell) {
+      additionalShell.addEventListener("mouseenter", stopAdditionalAutoplay);
+      additionalShell.addEventListener("mouseleave", startAdditionalAutoplay);
+    }
+
+    renderAll();
+    renderAdditionalResults();
+    startAdditionalAutoplay();
+  </script>
+</body>
+</html>
