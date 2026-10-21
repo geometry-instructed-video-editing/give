@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GIVE Supplementary Video Comparisons</title>
+  <title>GIVE: Geometry-Instructed Video Editing | SIGGRAPH Asia 2026</title>
   <style>
     :root {
       --bg: #f7f8fb;
@@ -1095,6 +1095,37 @@
       .method-shell,
       .paper-figure-card { padding: 12px; }
     }
+  
+    .publication-venue {
+      margin-top: 24px;
+      color: var(--blue);
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+    }
+    .publication-authors {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px 22px;
+      max-width: 900px;
+      margin: 20px auto 0;
+      font-size: 18px;
+      font-weight: 500;
+    }
+    .publication-authors span,
+    .publication-affiliations span { white-space: nowrap; }
+    .publication-authors sup,
+    .publication-affiliations sup { color: var(--blue); font-size: 0.7em; }
+    .publication-affiliations {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px 24px;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 15px;
+    }
   </style>
 </head>
 
@@ -1126,6 +1157,23 @@
             <span class="brand-mark-label">GIVE</span>
           </div>
           <h1>Geometry-Instructed Video Editing</h1>
+        </div>
+        <div class="publication-venue">SIGGRAPH Asia 2026</div>
+        <div class="publication-authors" aria-label="Authors">
+          <span>Chirui Chang<sup>1</sup></span>
+          <span>Xiaoyang Lyu<sup>1</sup></span>
+          <span>Yi-Hua Huang<sup>1</sup></span>
+          <span>Haoru Tan<sup>1</sup></span>
+          <span>Shizhen Zhao<sup>1</sup></span>
+          <span>Yikang Ding<sup>2</sup></span>
+          <span>Jianmin Bao<sup>2</sup></span>
+          <span>Xin Tao<sup>2</sup></span>
+          <span>Pengfei Wan<sup>2</sup></span>
+          <span>Xiaojuan Qi<sup>1</sup></span>
+        </div>
+        <div class="publication-affiliations">
+          <span><sup>1</sup> The University of Hong Kong</span>
+          <span><sup>2</sup> Kuaishou Technology</span>
         </div>
         <p>
           A unified framework for object-level geometric video editing with compact,
